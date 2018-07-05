@@ -27,7 +27,7 @@ void OnTick() {
          }
       } else {
          
-         int ticket = OrderSelect(ticketGlobal,SELECT_BY_TICKET);
+         int ticket = OrderSelect(OrdersTotal() - 1,SELECT_BY_POS);
          Print("Ticket found: "+ ticket);
          if (OrderProfit() > 200 && OrderType() == 1) {
             bool res = OrderModify(ticket,0, OrderStopLoss() - 200, OrderProfit(),0);
